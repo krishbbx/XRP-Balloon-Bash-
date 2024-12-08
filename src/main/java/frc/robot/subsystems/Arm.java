@@ -11,13 +11,13 @@ public class Arm extends SubsystemBase {
 
   //FIELDS
   private static Arm instanceArm; 
-  // Declare the XRPServo motor here
+  // Task 3A. Declare the XRPServo motor here
 
 
   //CONSTRUCTOR METHOD
   public Arm() {
 
-    //Construct the XRPServo object here
+    //Task 3B. Construct the XRPServo object here
 
 
   }
@@ -32,11 +32,14 @@ public class Arm extends SubsystemBase {
 
   //Reset arm method - moves arm to a 0 degree angle
   public void resetArm(){
-
+    
+    //Task 3C. Set the XRPServo's angle to 0
     
   }
 
-  //Write moveArm() method here - move arm to a specified angle
+  //Task 3D. Write moveArm() method here - move arm to a specified angle
+
+
 
 
 

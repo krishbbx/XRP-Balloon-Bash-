@@ -30,8 +30,11 @@ public class RobotContainer {
   // The robot commands are defined here...
   private final XRPOnBoardIO onboardIO = new XRPOnBoardIO();
   
-  // Assumes a gamepad plugged into channel 0 in the Simulation popup
+  //Constructs a Joystick or XboxController, plugged into channel 0 in the Simulation popup
+  //Task 5A. Make sure you have the correct line commented in
   private final Joystick controller = new Joystick(0);
+  //private final XboxController controller = new XboxController(0);
+
 
   // Create SmartDashboard chooser for autonomous routines
   private final SendableChooser<Command> chooser = new SendableChooser<>();
@@ -60,17 +63,17 @@ public class RobotContainer {
     // Look at the Javadocs for JoystickButton: https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/Joystick.html
     new JoystickButton(controller, Button.kA.value).onTrue( new ArmReset() );
     
-    //Bind button(s) to move the arm to different angle(s)
+    //Task 5B. Bind button(s) to move the arm to different angle(s)
 
 
 
     //[Veteran Challenge] Arm moves with Trigger
 
 
-      // Setup SmartDashboard options
-      chooser.setDefaultOption("Auto Routine Distance", new AutonomousTime());
-      chooser.addOption("Auto Routine Time", new AutonomousTime());
-      SmartDashboard.putData(chooser);
+    // Setup SmartDashboard options
+    chooser.setDefaultOption("Auto Routine Distance", new AutonomousTime());
+    chooser.addOption("Auto Routine Time", new AutonomousTime());
+    SmartDashboard.putData(chooser);
   }
 
 /**
