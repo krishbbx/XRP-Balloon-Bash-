@@ -8,25 +8,40 @@ import edu.wpi.first.wpilibj.xrp.XRPServo;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Arm extends SubsystemBase {
-  private final XRPServo m_armServo;
+
+  //FIELDS
+  private static Arm instanceArm; 
+  //add field for the XRPServo motor
+
 
   /** Creates a new Arm. */
   public Arm() {
-    // Device number 4 maps to the physical Servo 1 port on the XRP
-    m_armServo = new XRPServo(4);
+    //Construct the XRPServo
+
+
   }
+
+  //Arm singleton
+  public static Arm getInstance(){
+    if(instanceArm == null){
+      instanceArm = new Arm();
+    }
+    return instanceArm;
+  }
+
+  //Reset arm
+  public void resetArm(){
+
+    
+  }
+
+  //Method to move the arm
+
+
+
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-  }
-
-  /**
-   * Set the current angle of the arm (0 - 180 degrees).
-   *
-   * @param angleDeg Desired arm angle in degrees
-   */
-  public void setAngle(double angleDeg) {
-    m_armServo.setAngle(angleDeg);
   }
 }

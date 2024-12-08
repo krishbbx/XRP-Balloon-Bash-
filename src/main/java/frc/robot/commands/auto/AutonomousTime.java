@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
+package frc.robot.commands.auto;
 
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
@@ -15,11 +15,11 @@ public class AutonomousTime extends SequentialCommandGroup {
    *
    * @param drivetrain The drive subsystem on which this command will run
    */
-  public AutonomousTime(Drivetrain drivetrain) {
+  public AutonomousTime() {
     addCommands(
-        new DriveTime(-0.6, 2.0, drivetrain),
-        new TurnTime(-0.5, 1.3, drivetrain),
-        new DriveTime(-0.6, 2.0, drivetrain),
-        new TurnTime(0.5, 1.3, drivetrain));
+        new DriveTime(-0.6, 2.0),
+        new TurnTime(-0.5, 1.3),
+        new DriveTime(-0.6, 2.0),
+        new TurnTime(0.5, 1.3));
   }
 }
