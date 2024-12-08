@@ -12,7 +12,8 @@ public class ArmReset extends Command {
   //FIELDS
   private Arm arm;
 
-  /** Creates a new ArmReset. */
+
+  //CONSTRUCTOR METHOD
   public ArmReset() {
     arm = Arm.getInstance();
     // Use addRequirements() here to declare subsystem dependencies.

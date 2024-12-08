@@ -11,17 +11,18 @@ public class Arm extends SubsystemBase {
 
   //FIELDS
   private static Arm instanceArm; 
-  //add field for the XRPServo motor
+  // Declare the XRPServo motor here
 
 
-  /** Creates a new Arm. */
+  //CONSTRUCTOR METHOD
   public Arm() {
-    //Construct the XRPServo
+
+    //Construct the XRPServo object here
 
 
   }
 
-  //Arm singleton
+  //Arm singleton method
   public static Arm getInstance(){
     if(instanceArm == null){
       instanceArm = new Arm();
@@ -29,19 +30,20 @@ public class Arm extends SubsystemBase {
     return instanceArm;
   }
 
-  //Reset arm
+  //Reset arm method - moves arm to a 0 degree angle
   public void resetArm(){
 
     
   }
 
-  //Method to move the arm
+  //Write moveArm() method here - move arm to a specified angle
 
 
 
-
+  // Periodic method - included in every subystem class
+  // Place anything here that you want to be called once per scheduler run
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    
   }
 }

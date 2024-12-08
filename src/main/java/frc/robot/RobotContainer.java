@@ -10,15 +10,13 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.StadiaController.Button;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.ArmReset;
-import frc.robot.commands.ArmSetAngle;
+// import frc.robot.commands.ArmSetAngle;
 import frc.robot.commands.auto.AutonomousTime;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.xrp.XRPOnBoardIO;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -32,7 +30,7 @@ public class RobotContainer {
   // The robot commands are defined here...
   private final XRPOnBoardIO onboardIO = new XRPOnBoardIO();
   
-  // Assumes a gamepad plugged into channel 0
+  // Assumes a gamepad plugged into channel 0 in the Simulation popup
   private final Joystick controller = new Joystick(0);
 
   // Create SmartDashboard chooser for autonomous routines
@@ -51,40 +49,31 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    // Default command is arcade drive. This will run unless another command
-    // is scheduled over it.
+
+    // Sets a default command to do Arcade driving for the Drivetrain subystem
     Drivetrain.getInstance().setDefaultCommand( new ArcadeDrive(
       () -> -controller.getRawAxis(1), 
       () -> -controller.getRawAxis(2)
       ));
     
-
-    //Look at the Javadocs for JoystickButton: https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/Joystick.html
-    new JoystickButton(controller, Button.kA.value).onTrue( new ArmReset());
+    // Binds the A button to the ArmReset command
+    // Look at the Javadocs for JoystickButton: https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/Joystick.html
+    new JoystickButton(controller, Button.kA.value).onTrue( new ArmReset() );
     
-    //Add in a new command(s) for moving the arm
-    new JoystickButton(controller, Button.kY.value).onTrue( new ArmSetAngle(90));
-    new JoystickButton(controller, Button.kX.value).onTrue( new ArmSetAngle(30));
-    new JoystickButton(controller, Button.kB.value).onTrue( new ArmSetAngle(60));
+    //Bind button(s) to move the arm to different angle(s)
+
+
 
     //[Veteran Challenge] Arm moves with Trigger
-    // Arm.getInstance().setDefaultCommand( new ArmJoystick(
-    //   () -> -controller.getRawAxis(3)
-    //   ));
-    
-    // Example of how to use the onboard IO
-    Trigger userButton = new Trigger(onboardIO::getUserButtonPressed);
-    userButton
-        .onTrue(new PrintCommand("USER Button Pressed"))
-        .onFalse(new PrintCommand("USER Button Released"));
 
-    // Setup SmartDashboard options
-    chooser.setDefaultOption("Auto Routine Distance", new AutonomousTime());
-    chooser.addOption("Auto Routine Time", new AutonomousTime());
-    SmartDashboard.putData(chooser);
+
+      // Setup SmartDashboard options
+      chooser.setDefaultOption("Auto Routine Distance", new AutonomousTime());
+      chooser.addOption("Auto Routine Time", new AutonomousTime());
+      SmartDashboard.putData(chooser);
   }
 
-  /**
+/**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    * @return the command to run in autonomous
    */
