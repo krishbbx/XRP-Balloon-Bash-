@@ -18,7 +18,7 @@ public class Arm extends SubsystemBase {
   public Arm() {
 
     //Task 3B. Construct the XRPServo object here
-    poker = new XRPServo(1);
+    poker = new XRPServo(4);
 
   }
 
@@ -38,10 +38,10 @@ public class Arm extends SubsystemBase {
   }
 
   //Task 3D. Write moveArm() method here - move arm to a specified angle
- 
+ public void moveArm(double angle){
+  poker.setAngle(angle);
 
-
-  
+ } 
   // Periodic method - included in every subystem class
   // Place anything here that you want to be called once per scheduler run
   @Override

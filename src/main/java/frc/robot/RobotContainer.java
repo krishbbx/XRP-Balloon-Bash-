@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.StadiaController.Button;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.ArmReset;
+import frc.robot.commands.ArmSetAngle;
 // import frc.robot.commands.ArmSetAngle;
 import frc.robot.commands.auto.AutonomousTime;
 import frc.robot.subsystems.Drivetrain;
@@ -32,8 +33,8 @@ public class RobotContainer {
   
   //Constructs a Joystick or XboxController, plugged into channel 0 in the Simulation popup
   //Task 5A. Make sure you have the correct line commented in
-  private final Joystick controller = new Joystick(0);
-  //private final XboxController controller = new XboxController(0);
+  //private final Joystick controller = new Joystick(0);
+  private final XboxController controller = new XboxController(0);
 
 
   // Create SmartDashboard chooser for autonomous routines
@@ -64,8 +65,8 @@ public class RobotContainer {
     new JoystickButton(controller, Button.kA.value).onTrue( new ArmReset() );
     
     //Task 5B. Bind button(s) to move the arm to different angle(s)
-
-
+    new JoystickButton(controller, Button.kY.value).onTrue(new ArmSetAngle(30.0));
+    
 
     //[Veteran Challenge] Arm moves with Trigger
 
