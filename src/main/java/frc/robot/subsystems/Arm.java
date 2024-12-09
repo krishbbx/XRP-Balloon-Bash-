@@ -12,13 +12,13 @@ public class Arm extends SubsystemBase {
   //FIELDS
   private static Arm instanceArm; 
   // Task 3A. Declare the XRPServo motor here
-
+  private XRPServo poker;
 
   //CONSTRUCTOR METHOD
   public Arm() {
 
     //Task 3B. Construct the XRPServo object here
-
+    poker = new XRPServo(1);
 
   }
 
@@ -34,15 +34,14 @@ public class Arm extends SubsystemBase {
   public void resetArm(){
     
     //Task 3C. Set the XRPServo's angle to 0
-    
+    poker.setAngle(0);
   }
 
   //Task 3D. Write moveArm() method here - move arm to a specified angle
+ 
 
 
-
-
-
+  
   // Periodic method - included in every subystem class
   // Place anything here that you want to be called once per scheduler run
   @Override

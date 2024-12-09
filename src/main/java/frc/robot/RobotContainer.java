@@ -56,7 +56,7 @@ public class RobotContainer {
     // Sets a default command to do Arcade driving for the Drivetrain subystem
     Drivetrain.getInstance().setDefaultCommand( new ArcadeDrive(
       () -> -controller.getRawAxis(1), 
-      () -> -controller.getRawAxis(2)
+      () -> -controller.getRawAxis(4)
       ));
     
     // Binds the A button to the ArmReset command
